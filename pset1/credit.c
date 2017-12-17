@@ -5,7 +5,7 @@ int iterate(long long n);
 int remaining(long long n);
 int length(long long n);
 int first_digits(long long n);
-//test
+
 int main(void)
 {
     printf("Enter Credit Card Number: ");
