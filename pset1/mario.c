@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <cs50.h>
-
+//test
 void pyramid(int n);
 
 int main(void)
