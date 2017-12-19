@@ -23,17 +23,21 @@ int main(int argc, string argv[])
         int msgLen = strlen(p);
 
         //builds new key that is the same length as the plaintext
-        string newKey = k;
+        char newKey[msgLen];
         for(i = 0, j = 0; i < msgLen; i++, j++)
         {
-            if(j == keyLen)
+            if(j == keyLen && isalpha(p[i]))
             {
                 j = 0;
                 newKey[i] = k[j];
             }
-            else
+            else if(isalpha(p[i]))
             {
                 newKey[i] = k[j];
+            }
+            else
+            {
+                j += -1;
             }
         }
         newKey[i] = '\0';
@@ -46,7 +50,11 @@ int main(int argc, string argv[])
                 //cycles through each letter of p and adds key value
                 for(i = 0; i < msgLen; i++)
                 {
-                    encryption[i] = ((p[i] + newKey[i]) % 26) + 'A';
+                    if(isalpha(p[i]))
+                    {
+                        encryption[i] = ((p[i] + newKey[i]) % 26) + 'A';
+                    }
+
                 }
             }
         printf("key: %s\n", k);
@@ -80,4 +88,3 @@ string verifyKey(string key)
    }
   return key;
 }
-
