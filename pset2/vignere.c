@@ -42,7 +42,6 @@ int main(int argc, string argv[])
         }
         newKey[i] = '\0';
 
-
         //encrypts plaintext using the new key
         char encryption[msgLen];
         if(p != NULL)
@@ -54,7 +53,6 @@ int main(int argc, string argv[])
                     {
                         encryption[i] = ((p[i] + newKey[i]) % 26) + 'A';
                     }
-
                 }
             }
         printf("key: %s\n", k);
